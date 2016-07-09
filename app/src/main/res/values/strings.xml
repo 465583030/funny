@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Funny</string>
+    <string name="crxc">CRXC</string>
+    <string name="news">新闻</string>
+    <string name="joke">开心一刻</string>
+    <string name="setting">设置</string>
+    <string name="gif">gif动图</string>
+    <string name="random_joke">随便看看</string>
+</resources>
