@@ -1,4 +1,4 @@
-package com.example.crxc.funny;
+package com.example.crxc.funny.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -26,8 +26,8 @@ public abstract class HomeAdapter<T> extends RecyclerView.Adapter<HomeAdapter.My
     }
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        MyViewHolder myViewHolder= MyViewHolder.get(mContext,parent,mLayoutId);
-        return myViewHolder;
+        return  MyViewHolder.get(mContext,parent,mLayoutId);
+
     }
 
     @Override
@@ -44,7 +44,7 @@ public abstract class HomeAdapter<T> extends RecyclerView.Adapter<HomeAdapter.My
         return mDatas.size();
     }
 
-     static class MyViewHolder extends RecyclerView.ViewHolder {
+     public static class MyViewHolder extends RecyclerView.ViewHolder {
         private SparseArray<View> mViews;
         private View mContentView;
         private Context mContext;
@@ -52,12 +52,11 @@ public abstract class HomeAdapter<T> extends RecyclerView.Adapter<HomeAdapter.My
             super(itemView);
             mContext=context;
             mContentView=itemView;
-            mViews=new SparseArray<View>();
+            mViews=new SparseArray<>();
         }
         public static MyViewHolder get(Context context,ViewGroup parent,int layoutId){
             View itemView= LayoutInflater.from(context).inflate(layoutId,parent,false);
-            MyViewHolder myViewHolder=new MyViewHolder(context,itemView,parent);
-            return myViewHolder;
+            return new MyViewHolder(context,itemView,parent);
         }
         public <T extends View> T getView(int viewId){
             View view=mViews.get(viewId);

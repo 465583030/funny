@@ -1,6 +1,7 @@
 package com.example.crxc.funny.inter;
 
-import com.example.crxc.funny.JokeMode;
+import com.example.crxc.funny.bean.GifMode;
+import com.example.crxc.funny.bean.JokeMode;
 
 import rx.Subscriber;
 
@@ -9,4 +10,6 @@ import rx.Subscriber;
  */
 public interface JokeInter  {
     void getJoke(Subscriber<JokeMode> subscriber,String key, int page, int pageSize);
+
+    void getGif(Subscriber<GifMode> subscriber, String key, int page, int pageSize);
 }

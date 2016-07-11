@@ -1,13 +1,9 @@
-package com.example.crxc.funny;
+package com.example.crxc.funny.inter.services;
 
-import java.util.Map;
+import com.example.crxc.funny.bean.JokeMode;
 
-import retrofit2.Call;
 import retrofit2.http.GET;
-import retrofit2.http.Part;
-import retrofit2.http.Path;
 import retrofit2.http.Query;
-import retrofit2.http.QueryMap;
 import rx.Observable;
 
 /**
