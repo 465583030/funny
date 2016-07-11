@@ -9,13 +9,14 @@
         android:layout_marginLeft="10dp"
         android:layout_marginTop="5dp"
         android:padding="4dp"
-        android:background="#263238"
+        android:background="@drawable/ripple_bg"
         android:id="@+id/list_text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="2"
         android:layout_marginBottom="5dp"
         android:textColor="#FFFFFF"
-        android:textSize="20sp"/>
+        android:textSize="16sp"
+        android:clickable="true"/>
 
 </LinearLayout>

@@ -1,4 +1,4 @@
-package com.example.crxc.funny.adapter;
+package com.example.crxc.funny.callBack;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -24,10 +24,11 @@ public abstract class HomeAdapter<T> extends RecyclerView.Adapter<HomeAdapter.My
         mLayoutId = layoutId;
         mDatas = datas;
     }
+
+
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         return  MyViewHolder.get(mContext,parent,mLayoutId);
-
     }
 
     @Override

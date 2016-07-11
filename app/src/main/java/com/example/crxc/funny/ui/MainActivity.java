@@ -12,7 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.crxc.funny.R;
-import com.example.crxc.funny.adapter.TabTitlePagerAdapter;
+import com.example.crxc.funny.callBack.TabTitlePagerAdapter;
 import com.example.crxc.funny.bean.Datum;
 import com.example.crxc.funny.bean.GifDatum;
 import com.example.crxc.funny.bean.JokeMode;

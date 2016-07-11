@@ -1,4 +1,4 @@
-package com.example.crxc.funny.adapter;
+package com.example.crxc.funny.callBack;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -12,8 +12,8 @@ import android.widget.TextView;
 import com.example.crxc.funny.R;
 import com.example.crxc.funny.bean.Datum;
 import com.example.crxc.funny.bean.GifDatum;
-import com.example.crxc.funny.ui.GifFragment;
-import com.example.crxc.funny.ui.TabContextFragment;
+import com.example.crxc.funny.ui.GifPagerFragment;
+import com.example.crxc.funny.ui.TabContextPagerFragment;
 
 import java.io.Serializable;
 import java.util.List;
@@ -47,7 +47,7 @@ public class TabTitlePagerAdapter extends FragmentPagerAdapter {
     }
 
     private Fragment getGifFragment() {
-        GifFragment fragment = new GifFragment();
+        GifPagerFragment fragment = new GifPagerFragment();
         Bundle bundle=new Bundle();
         bundle.putSerializable(JokeData, (Serializable) GifDatas);
         fragment.setArguments(bundle);
@@ -55,7 +55,7 @@ public class TabTitlePagerAdapter extends FragmentPagerAdapter {
     }
 
     private Fragment getJokeFragment() {
-        TabContextFragment fragment = new TabContextFragment();
+        TabContextPagerFragment fragment = new TabContextPagerFragment();
         Bundle bundle=new Bundle();
         bundle.putSerializable(JokeData, (Serializable) Datas);
         fragment.setArguments(bundle);
