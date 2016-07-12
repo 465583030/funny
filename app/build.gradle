@@ -49,4 +49,5 @@ dependencies {
     // 记得添加nineoldandroids
     compile 'com.nineoldandroids:library:2.4.0'
     compile 'cn.bingoogolapple:bga-refreshlayout:1.1.5@aar'
+    compile 'com.davemorrissey.labs:subsampling-scale-image-view:3.5.0'
 }

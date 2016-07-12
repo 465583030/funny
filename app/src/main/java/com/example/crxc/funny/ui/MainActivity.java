@@ -12,8 +12,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.crxc.funny.R;
-import com.example.crxc.funny.callBack.TabTitlePagerAdapter;
 import com.example.crxc.funny.bean.Datum;
+import com.example.crxc.funny.callBack.TabTitlePagerAdapter;
 import com.example.crxc.funny.bean.GifDatum;
 import com.example.crxc.funny.bean.JokeMode;
 import com.example.crxc.funny.presenter.IJokePresenterImpl;
@@ -30,7 +30,26 @@ import rx.Subscriber;
 public class MainActivity<IJokePresenter> extends AppCompatActivity implements BGARefreshLayout.BGARefreshLayoutDelegate,IJokeView{
     private static final String TAG = "MainActivity";
     private List<Datum> mDatas = new ArrayList<>();
+    private List<Datum> mRandomDatas = new ArrayList<>();
+
+    public List<Datum> getmRandomDatas() {
+        return mRandomDatas;
+    }
+
+    public void setmRandomDatas(List<Datum> mRandomDatas) {
+        this.mRandomDatas = mRandomDatas;
+    }
+
+    public List<GifDatum> getmRandomGifDatas() {
+        return mRandomGifDatas;
+    }
+
+    public void setmRandomGifDatas(List<GifDatum> mRandomGifDatas) {
+        this.mRandomGifDatas = mRandomGifDatas;
+    }
+
     private List<GifDatum> mGifDatas = new ArrayList<>();
+    private List<GifDatum> mRandomGifDatas = new ArrayList<>();
     private String[] titleArr;
     private android.support.v4.widget.DrawerLayout mDrawerLayout;
     private ViewPager mViewPager;
@@ -70,6 +89,16 @@ public class MainActivity<IJokePresenter> extends AppCompatActivity implements B
         mGifDatas.clear();
     }
 
+    @Override
+    public void clearRandomGifData() {
+        mRandomGifDatas.clear();
+    }
+
+    @Override
+    public void clearRandomData() {
+        mRandomDatas.clear();
+    }
+
     public  void setPageSize(int sPageSize) {
         MainActivity.sPageSize = sPageSize;
     }
@@ -85,9 +114,11 @@ public class MainActivity<IJokePresenter> extends AppCompatActivity implements B
         setContentView(R.layout.activity_main);
         mPresenter=new IJokePresenterImpl(this);
         mDrawerLayout= (DrawerLayout) findViewById(R.id.drawer_layout);
-        titleArr = new String[]{getString(R.string.joke), getString(R.string.gif), getString(R.string.random_joke)};
+        titleArr = new String[]{getString(R.string.joke), getString(R.string.gif), getString(R.string.random_joke),getString(R.string.random_image)};
         mPresenter.getJoke(1);
         mPresenter.getGif(1);
+        mPresenter.getRandomJoke();
+        mPresenter.getRandomGif();
         initTabAndViewPager();
         initToolBar();
         initRefreshLayout();
@@ -107,7 +138,8 @@ public class MainActivity<IJokePresenter> extends AppCompatActivity implements B
         TabLayout mTabLayout = (TabLayout) findViewById(R.id.tabLayout);
 
         mViewPager = (ViewPager) findViewById(R.id.viewPager);
-        TabTitlePagerAdapter mTabTitleAdaptor = new TabTitlePagerAdapter(getSupportFragmentManager(), MainActivity.this, titleArr,mDatas,mGifDatas);
+        TabTitlePagerAdapter mTabTitleAdaptor = new TabTitlePagerAdapter(getSupportFragmentManager(),
+                MainActivity.this, titleArr,mDatas,mGifDatas,mRandomDatas,mRandomGifDatas);
         mViewPager.setAdapter(mTabTitleAdaptor);
         if (mTabLayout!=null) {
             mTabLayout.setTabMode(TabLayout.MODE_FIXED);
@@ -148,6 +180,8 @@ public class MainActivity<IJokePresenter> extends AppCompatActivity implements B
         switch (mViewPager.getCurrentItem()){
             case 0:mPresenter.refreshJoke();break;
             case 1:mPresenter.refreshGif();break;
+            case 2:mPresenter.refreshRandomJoke();break;
+            case 3:mPresenter.refreshRandomGif();break;
         }
     }
 
@@ -163,6 +197,8 @@ public class MainActivity<IJokePresenter> extends AppCompatActivity implements B
         switch (mViewPager.getCurrentItem()){
             case 0: mPresenter.loadData();break;
             case 1: mPresenter.loadGifData();break;
+            case 2: mPresenter.loadRandomData();break;
+            case 3: mPresenter.loadRandomGifData();break;
         }
         return true;
     }

@@ -8,4 +8,5 @@
     <string name="random_joke">随便看看</string>
     <string name="load_more">正在加载</string>
     <string name="copy">已复制至剪贴板</string>
+    <string name="random_image">随机趣图</string>
 </resources>
