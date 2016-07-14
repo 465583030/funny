@@ -1,3 +1,18 @@
+-dontwarn java.nio.file.Path
+-dontwarn org.w3c.dom.bootstrap.DOMImplementationRegistry
+-dontwarn java.nio.file.Paths
+-dontwarn java.beans.Transient
+-dontwarn java.beans.ConstructorProperties
+-dontwarn java.nio.file.Files
+-dontwarn java.nio.file.OpenOption
+-dontwarn org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement
+-dontwarn java.lang.reflect.Method
+-dontwarn java.lang.invoke.MethodHandles$Lookup
+-dontwarn java.lang.invoke.MethodHandle
+-dontwarn java.lang.invoke.MethodHandles
+-dontwarn java.lang.invoke.MethodHandles$Lookup
+-dontwarn sun.misc.Unsafe
+
 # Add project specific ProGuard rules here.
 # By default, the flags in this file are appended to flags specified
 # in C:\Users\crxc\AppData\Local\Android\Sdk/tools/proguard/proguard-android.txt

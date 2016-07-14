@@ -6,14 +6,14 @@ android {
 
     defaultConfig {
         applicationId "com.example.crxc.funny"
-        minSdkVersion 18
+        minSdkVersion 20
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -50,4 +50,10 @@ dependencies {
     compile 'com.nineoldandroids:library:2.4.0'
     compile 'cn.bingoogolapple:bga-refreshlayout:1.1.5@aar'
     compile 'com.davemorrissey.labs:subsampling-scale-image-view:3.5.0'
+    compile 'jp.wasabeef:glide-transformations:2.0.1'
+    compile 'com.afollestad.material-dialogs:core:0.8.6.1'
+    compile 'com.wang.avi:library:1.0.5'
+    compile 'com.nineoldandroids:library:2.4.0'
+    compile 'com.github.ybq:Android-SpinKit:1.0.4'
+    compile 'com.readystatesoftware.systembartint:systembartint:1.0.3'
 }

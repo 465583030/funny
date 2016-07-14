@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">Funny</string>
-    <string name="crxc">CRXC</string>
+    <string name="app_name">开心一笑</string>
+    <string name="crxc">璨若星辰</string>
     <string name="news">新闻</string>
     <string name="joke">开心一刻</string>
     <string name="setting">设置</string>
@@ -9,4 +9,8 @@
     <string name="load_more">正在加载</string>
     <string name="copy">已复制至剪贴板</string>
     <string name="random_image">随机趣图</string>
+    <string name="about">关于项目</string>
+    <string name="content">此项目数据来自聚合数据，采用MVP架构，用了Retrofit2.0，Rxjava,PhotoView,Glide,okhttp等开源项目</string>
+    <string name="help">使用手册</string>
+    <string name="help_content">1.看到喜欢的笑话时可双击文字复制到剪贴板\n2.长按分享（开发进行中）</string>
 </resources>

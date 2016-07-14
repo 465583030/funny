@@ -6,25 +6,30 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="false">
     <!-- The main content view -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <cn.bingoogolapple.refreshlayout.BGARefreshLayout
         android:id="@+id/rl_modulename_refresh"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
+
         <cn.bingoogolapple.refreshlayout.BGAStickyNavLayout style="@style/MatchAuto">
 
 
-        <android.support.design.widget.AppBarLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
-
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar"
+            <android.support.design.widget.AppBarLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#000000"
-                app:layout_scrollFlags="scroll|exitUntilCollapsed" />
-        </android.support.design.widget.AppBarLayout>
+                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#000000"
+                    app:layout_scrollFlags="scroll|exitUntilCollapsed" />
+            </android.support.design.widget.AppBarLayout>
+
             <android.support.design.widget.TabLayout
                 android:id="@+id/tabLayout"
                 android:layout_width="match_parent"
@@ -32,22 +37,30 @@
                 android:background="#000000"
                 app:tabIndicatorColor="#FFFFFF"
                 app:tabSelectedTextColor="#FFFFFF"
-                app:tabTextColor="#D7CCC8"/>
+                app:tabTextColor="#D7CCC8" />
 
 
-
-        <android.support.v4.view.ViewPager
-            android:layout_below="@+id/tabLayout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#263238"
-            android:id="@+id/viewPager"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
-
+            <android.support.v4.view.ViewPager
+                android:id="@+id/viewPager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/tabLayout"
+                android:background="#263238"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
+            </android.support.v4.view.ViewPager>
 
 
         </cn.bingoogolapple.refreshlayout.BGAStickyNavLayout>
     </cn.bingoogolapple.refreshlayout.BGARefreshLayout>
+    <com.github.ybq.android.spinkit.SpinKitView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/spin_kit"
+        style="@style/SpinKitView.Large.Circle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:SpinKit_Color="@color/colorAccent" />
+</FrameLayout>
     <!-- The navigation drawer -->
     <RelativeLayout
         android:layout_width="240dp"
