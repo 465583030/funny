@@ -12,7 +12,6 @@ import android.widget.TextView;
 import com.example.crxc.funny.R;
 import com.example.crxc.funny.bean.Datum;
 import com.example.crxc.funny.bean.GifDatum;
-import com.example.crxc.funny.bean.Datum;
 import com.example.crxc.funny.ui.GifPagerFragment;
 import com.example.crxc.funny.ui.TabContextPagerFragment;
 
@@ -23,13 +22,13 @@ import java.util.List;
  * Created by crxc on 2016/7/8.
  */
 public class TabTitlePagerAdapter extends FragmentPagerAdapter {
+    public final static String JokeData = "JOKE_DATA";
     private final Context mContext;
     private String[] titleArr;
     private List<Datum> Datas;
     private List<Datum> RandomDatas;
     private List<GifDatum> GifDatas;
     private List<GifDatum> RandomGifDatas;
-    public final static String  JokeData="JOKE_DATA";
 
     public TabTitlePagerAdapter(FragmentManager fm, Context context, String[] titleArr, List<Datum> mDatas, List<GifDatum> mGifDatas, List<Datum> mRandomDatas, List<GifDatum> mRandomGifDatas) {
         super(fm);
