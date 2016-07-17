@@ -7,10 +7,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.crxc.funny.R;
+import com.example.crxc.funny.app.App;
 import com.example.crxc.funny.callBack.HomeAdapter;
 import com.example.crxc.funny.base.BasePagerFragment;
 import com.example.crxc.funny.bean.Datum;
 import com.example.crxc.funny.callBack.OnRecyclerItemClickListener;
+import com.squareup.leakcanary.RefWatcher;
 
 /**
  * Created by crxc on 2016/7/2.
@@ -29,7 +31,7 @@ public class TabContextPagerFragment extends BasePagerFragment<Datum> {
             protected void onItemDoubleClick(HomeAdapter.MyViewHolder viewHolder) {
                 TextView textView=viewHolder.getView(R.id.list_text);
                 ClipboardManager cm =(ClipboardManager)mContext.getSystemService(Context.CLIPBOARD_SERVICE);
-                cm.setText(textView.getText());
+                cm.setText(textView.getText()+"");
                 Toast.makeText(getContext(),getString(R.string.copy),Toast.LENGTH_SHORT).show();
             }
 
@@ -56,5 +58,11 @@ public class TabContextPagerFragment extends BasePagerFragment<Datum> {
         };
         mRecyclerView.setAdapter(adapter);
 //        mRecyclerView.addItemDecoration(new BaseItemDecoration(mContext, BaseItemDecoration.VERTICAL_LIST));
+    }
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        RefWatcher refWatcher = App.getRefWatcher(getActivity());
+        refWatcher.watch(this);
     }
 }

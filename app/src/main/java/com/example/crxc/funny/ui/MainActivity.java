@@ -22,6 +22,7 @@ import android.widget.ProgressBar;
 
 import com.bumptech.glide.Glide;
 import com.example.crxc.funny.R;
+import com.example.crxc.funny.app.App;
 import com.example.crxc.funny.bean.Datum;
 import com.example.crxc.funny.callBack.TabTitlePagerAdapter;
 import com.example.crxc.funny.bean.GifDatum;
@@ -30,6 +31,7 @@ import com.example.crxc.funny.presenter.IJokePresenterImpl;
 import com.example.crxc.funny.view.IJokeView;
 import com.github.ybq.android.spinkit.style.DoubleBounce;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
+import com.squareup.leakcanary.RefWatcher;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -230,6 +232,7 @@ public class MainActivity<IJokePresenter> extends AppCompatActivity implements B
 
 
     public void updateViewPager() {
+        Log.d(TAG, "updateViewPager: 刷新页面");
         mViewPager.getAdapter().notifyDataSetChanged();
     }
 

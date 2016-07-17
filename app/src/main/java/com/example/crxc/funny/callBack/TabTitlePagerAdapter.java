@@ -50,7 +50,6 @@ public class TabTitlePagerAdapter extends FragmentPagerAdapter {
             case 2: fragment=getRandomJokeFragment(RandomDatas);break;
             case 3: fragment=getGifFragment(RandomGifDatas);break;
         }
-
         return fragment;
     }
 
