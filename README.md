@@ -19,3 +19,5 @@ https://pixabay.com/zh/
 ##数据来源
 https://www.juhe.cn/docs/api/id/95
 
+##google play store
+https://play.google.com/store/apps/details?id=com.laozhoujia.crxc.funny
