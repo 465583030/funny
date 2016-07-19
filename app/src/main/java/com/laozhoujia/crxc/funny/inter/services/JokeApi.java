@@ -1,6 +1,6 @@
-package com.example.crxc.funny.inter.services;
+package com.laozhoujia.crxc.funny.inter.services;
 
-import com.example.crxc.funny.bean.JokeMode;
+import com.laozhoujia.crxc.funny.bean.JokeMode;
 
 import retrofit2.http.GET;
 import retrofit2.http.Query;

@@ -1,9 +1,9 @@
-package com.example.crxc.funny.inter;
+package com.laozhoujia.crxc.funny.inter;
 
-import com.example.crxc.funny.bean.GifMode;
-import com.example.crxc.funny.bean.JokeMode;
-import com.example.crxc.funny.bean.RandomGifMode;
-import com.example.crxc.funny.bean.RandomJokeMode;
+import com.laozhoujia.crxc.funny.bean.GifMode;
+import com.laozhoujia.crxc.funny.bean.JokeMode;
+import com.laozhoujia.crxc.funny.bean.RandomGifMode;
+import com.laozhoujia.crxc.funny.bean.RandomJokeMode;
 
 import rx.Subscriber;
 
@@ -11,7 +11,7 @@ import rx.Subscriber;
  * Created by crxc on 2016/7/9.
  */
 public interface JokeInter  {
-    void getJoke(Subscriber<JokeMode> subscriber,String key, int page, int pageSize);
+    void getJoke(Subscriber<JokeMode> subscriber, String key, int page, int pageSize);
 
     void getGif(Subscriber<GifMode> subscriber, String key, int page, int pageSize);
 

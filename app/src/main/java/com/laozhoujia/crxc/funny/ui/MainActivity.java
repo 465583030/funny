@@ -1,16 +1,16 @@
-package com.example.crxc.funny.ui;
+package com.laozhoujia.crxc.funny.ui;
 
 import android.annotation.TargetApi;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.os.Build;
+import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
@@ -21,17 +21,15 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import com.bumptech.glide.Glide;
-import com.example.crxc.funny.R;
-import com.example.crxc.funny.app.App;
-import com.example.crxc.funny.bean.Datum;
-import com.example.crxc.funny.callBack.TabTitlePagerAdapter;
-import com.example.crxc.funny.bean.GifDatum;
-import com.example.crxc.funny.bean.JokeMode;
-import com.example.crxc.funny.presenter.IJokePresenterImpl;
-import com.example.crxc.funny.view.IJokeView;
 import com.github.ybq.android.spinkit.style.DoubleBounce;
+import com.laozhoujia.crxc.funny.R;
+import com.laozhoujia.crxc.funny.bean.Datum;
+import com.laozhoujia.crxc.funny.bean.GifDatum;
+import com.laozhoujia.crxc.funny.bean.JokeMode;
+import com.laozhoujia.crxc.funny.callBack.TabTitlePagerAdapter;
+import com.laozhoujia.crxc.funny.presenter.IJokePresenterImpl;
+import com.laozhoujia.crxc.funny.view.IJokeView;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
-import com.squareup.leakcanary.RefWatcher;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,10 +42,21 @@ import rx.Subscriber;
 
 public class MainActivity<IJokePresenter> extends AppCompatActivity implements BGARefreshLayout.BGARefreshLayoutDelegate, IJokeView {
     private static final String TAG = "MainActivity";
+    private static String sKey = "f4f353724cc2afcf3c1c7bcafd86fdad";
+    private static int sPage = 1;
+    private static int sPageSize = 8;
     private List<Datum> mDatas = new ArrayList<>();
     private List<Datum> mRandomDatas = new ArrayList<>();
     private ProgressBar progressBar;
     private SystemBarTintManager tintManager;
+    private List<GifDatum> mGifDatas = new ArrayList<>();
+    private List<GifDatum> mRandomGifDatas = new ArrayList<>();
+    private String[] titleArr;
+    private android.support.v4.widget.DrawerLayout mDrawerLayout;
+    private ViewPager mViewPager;
+    private Subscriber<JokeMode> subscriber;
+    private BGARefreshLayout mRefreshLayout;
+    private IJokePresenterImpl mPresenter;
 
     public List<Datum> getmRandomDatas() {
         return mRandomDatas;
@@ -59,6 +68,10 @@ public class MainActivity<IJokePresenter> extends AppCompatActivity implements B
 
     public List<GifDatum> getmRandomGifDatas() {
         return mRandomGifDatas;
+    }
+
+    public void setmRandomGifDatas(List<GifDatum> mRandomGifDatas) {
+        this.mRandomGifDatas = mRandomGifDatas;
     }
 
     @Override
@@ -76,22 +89,9 @@ public class MainActivity<IJokePresenter> extends AppCompatActivity implements B
         progressBar.setVisibility(View.GONE);
     }
 
-    public void setmRandomGifDatas(List<GifDatum> mRandomGifDatas) {
-        this.mRandomGifDatas = mRandomGifDatas;
-    }
-
-    private List<GifDatum> mGifDatas = new ArrayList<>();
-    private List<GifDatum> mRandomGifDatas = new ArrayList<>();
-    private String[] titleArr;
-    private android.support.v4.widget.DrawerLayout mDrawerLayout;
-    private ViewPager mViewPager;
-    private Subscriber<JokeMode> subscriber;
-    private static String sKey = "f4f353724cc2afcf3c1c7bcafd86fdad";
-
     public String getKey() {
         return sKey;
     }
-
 
     public int getPage() {
         return sPage;
@@ -108,6 +108,10 @@ public class MainActivity<IJokePresenter> extends AppCompatActivity implements B
 
     public int getPageSize() {
         return sPageSize;
+    }
+
+    public void setPageSize(int sPageSize) {
+        MainActivity.sPageSize = sPageSize;
     }
 
     @Override
@@ -129,15 +133,6 @@ public class MainActivity<IJokePresenter> extends AppCompatActivity implements B
     public void clearRandomData() {
         mRandomDatas.clear();
     }
-
-    public void setPageSize(int sPageSize) {
-        MainActivity.sPageSize = sPageSize;
-    }
-
-    private static int sPage = 1;
-    private static int sPageSize = 8;
-    private BGARefreshLayout mRefreshLayout;
-    private IJokePresenterImpl mPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

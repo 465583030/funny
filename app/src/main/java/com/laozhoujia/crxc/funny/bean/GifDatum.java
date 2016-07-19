@@ -1,20 +1,21 @@
-package com.example.crxc.funny.bean;
+package com.laozhoujia.crxc.funny.bean;
 
 /**
  * Created by crxc on 2016/7/9.
  */
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import java.io.Serializable;
 import java.util.HashMap;
-        import java.util.Map;
-        import javax.annotation.Generated;
-        import com.fasterxml.jackson.annotation.JsonAnyGetter;
-        import com.fasterxml.jackson.annotation.JsonAnySetter;
-        import com.fasterxml.jackson.annotation.JsonIgnore;
-        import com.fasterxml.jackson.annotation.JsonInclude;
-        import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.Map;
+
+import javax.annotation.Generated;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Generated("org.jsonschema2pojo")
@@ -25,7 +26,7 @@ import java.util.HashMap;
         "updatetime",
         "url"
 })
-public class GifDatum implements Serializable{
+public class GifDatum implements Serializable {
 
     @JsonProperty("content")
     private String content;
@@ -41,9 +42,7 @@ public class GifDatum implements Serializable{
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
     /**
-     *
-     * @return
-     * The content
+     * @return The content
      */
     @JsonProperty("content")
     public String getContent() {
@@ -51,9 +50,7 @@ public class GifDatum implements Serializable{
     }
 
     /**
-     *
-     * @param content
-     * The content
+     * @param content The content
      */
     @JsonProperty("content")
     public void setContent(String content) {
@@ -61,9 +58,7 @@ public class GifDatum implements Serializable{
     }
 
     /**
-     *
-     * @return
-     * The hashId
+     * @return The hashId
      */
     @JsonProperty("hashId")
     public String getHashId() {
@@ -71,9 +66,7 @@ public class GifDatum implements Serializable{
     }
 
     /**
-     *
-     * @param hashId
-     * The hashId
+     * @param hashId The hashId
      */
     @JsonProperty("hashId")
     public void setHashId(String hashId) {
@@ -81,9 +74,7 @@ public class GifDatum implements Serializable{
     }
 
     /**
-     *
-     * @return
-     * The unixtime
+     * @return The unixtime
      */
     @JsonProperty("unixtime")
     public Integer getUnixtime() {
@@ -91,9 +82,7 @@ public class GifDatum implements Serializable{
     }
 
     /**
-     *
-     * @param unixtime
-     * The unixtime
+     * @param unixtime The unixtime
      */
     @JsonProperty("unixtime")
     public void setUnixtime(Integer unixtime) {
@@ -101,9 +90,7 @@ public class GifDatum implements Serializable{
     }
 
     /**
-     *
-     * @return
-     * The updatetime
+     * @return The updatetime
      */
     @JsonProperty("updatetime")
     public String getUpdatetime() {
@@ -111,9 +98,7 @@ public class GifDatum implements Serializable{
     }
 
     /**
-     *
-     * @param updatetime
-     * The updatetime
+     * @param updatetime The updatetime
      */
     @JsonProperty("updatetime")
     public void setUpdatetime(String updatetime) {
@@ -121,9 +106,7 @@ public class GifDatum implements Serializable{
     }
 
     /**
-     *
-     * @return
-     * The url
+     * @return The url
      */
     @JsonProperty("url")
     public String getUrl() {
@@ -131,9 +114,7 @@ public class GifDatum implements Serializable{
     }
 
     /**
-     *
-     * @param url
-     * The url
+     * @param url The url
      */
     @JsonProperty("url")
     public void setUrl(String url) {

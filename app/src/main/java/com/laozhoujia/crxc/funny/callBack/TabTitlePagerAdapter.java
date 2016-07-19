@@ -1,4 +1,4 @@
-package com.example.crxc.funny.callBack;
+package com.laozhoujia.crxc.funny.callBack;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -9,11 +9,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
-import com.example.crxc.funny.R;
-import com.example.crxc.funny.bean.Datum;
-import com.example.crxc.funny.bean.GifDatum;
-import com.example.crxc.funny.ui.GifPagerFragment;
-import com.example.crxc.funny.ui.TabContextPagerFragment;
+import com.laozhoujia.crxc.funny.R;
+import com.laozhoujia.crxc.funny.bean.Datum;
+import com.laozhoujia.crxc.funny.bean.GifDatum;
+import com.laozhoujia.crxc.funny.ui.GifPagerFragment;
+import com.laozhoujia.crxc.funny.ui.TabContextPagerFragment;
 
 import java.io.Serializable;
 import java.util.List;
@@ -46,17 +46,11 @@ public class TabTitlePagerAdapter extends FragmentPagerAdapter {
         switch (position){
             case 0: fragment=getJokeFragment(Datas);break;
             case 1: fragment=getGifFragment(GifDatas);break;
-            case 2: fragment=getRandomJokeFragment(RandomDatas);break;
+            case 2:
+                fragment = getJokeFragment(RandomDatas);
+                break;
             case 3: fragment=getGifFragment(RandomGifDatas);break;
         }
-        return fragment;
-    }
-
-    private Fragment getRandomJokeFragment(List<Datum> randomDatas) {
-        TabContextPagerFragment fragment = new TabContextPagerFragment();
-        Bundle bundle=new Bundle();
-        bundle.putSerializable(JokeData, (Serializable) randomDatas);
-        fragment.setArguments(bundle);
         return fragment;
     }
 

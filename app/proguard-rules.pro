@@ -197,7 +197,7 @@
 #    public *** get*();
 #    public *** is*();
 #}
--keep public class com.example.crxc.funny.bean.** { *; }
+-keep public class com.laozhoujia.crxc.funny.bean.** { *; }
 
 #-----------处理第三方依赖库---------
 

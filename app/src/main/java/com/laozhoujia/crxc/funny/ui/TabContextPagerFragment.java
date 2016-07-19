@@ -1,4 +1,5 @@
-package com.example.crxc.funny.ui;
+package com.laozhoujia.crxc.funny.ui;
+
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.support.v7.widget.OrientationHelper;
@@ -6,12 +7,12 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.crxc.funny.R;
-import com.example.crxc.funny.app.App;
-import com.example.crxc.funny.callBack.HomeAdapter;
-import com.example.crxc.funny.base.BasePagerFragment;
-import com.example.crxc.funny.bean.Datum;
-import com.example.crxc.funny.callBack.OnRecyclerItemClickListener;
+import com.laozhoujia.crxc.funny.R;
+import com.laozhoujia.crxc.funny.app.App;
+import com.laozhoujia.crxc.funny.base.BasePagerFragment;
+import com.laozhoujia.crxc.funny.bean.Datum;
+import com.laozhoujia.crxc.funny.callBack.HomeAdapter;
+import com.laozhoujia.crxc.funny.callBack.OnRecyclerItemClickListener;
 import com.squareup.leakcanary.RefWatcher;
 
 /**

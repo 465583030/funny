@@ -1,4 +1,4 @@
-package com.example.crxc.funny;
+package com.laozhoujia.crxc.funny;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

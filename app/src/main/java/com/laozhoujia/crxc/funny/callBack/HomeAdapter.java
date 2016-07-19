@@ -1,4 +1,4 @@
-package com.example.crxc.funny.callBack;
+package com.laozhoujia.crxc.funny.callBack;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;

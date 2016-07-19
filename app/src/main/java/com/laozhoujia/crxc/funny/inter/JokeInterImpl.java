@@ -1,14 +1,15 @@
-package com.example.crxc.funny.inter;
+package com.laozhoujia.crxc.funny.inter;
+
 import android.util.Log;
 
-import com.example.crxc.funny.bean.GifMode;
-import com.example.crxc.funny.bean.RandomGifMode;
-import com.example.crxc.funny.bean.RandomJokeMode;
-import com.example.crxc.funny.inter.services.GifApi;
-import com.example.crxc.funny.inter.services.JokeApi;
-import com.example.crxc.funny.bean.JokeMode;
-import com.example.crxc.funny.inter.services.RandomApi;
-import com.example.crxc.funny.inter.services.RandomJokeApi;
+import com.laozhoujia.crxc.funny.bean.GifMode;
+import com.laozhoujia.crxc.funny.bean.JokeMode;
+import com.laozhoujia.crxc.funny.bean.RandomGifMode;
+import com.laozhoujia.crxc.funny.bean.RandomJokeMode;
+import com.laozhoujia.crxc.funny.inter.services.GifApi;
+import com.laozhoujia.crxc.funny.inter.services.JokeApi;
+import com.laozhoujia.crxc.funny.inter.services.RandomApi;
+import com.laozhoujia.crxc.funny.inter.services.RandomJokeApi;
 
 import java.util.concurrent.TimeUnit;
 
@@ -16,10 +17,8 @@ import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.jackson.JacksonConverterFactory;
-import rx.Scheduler;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Action1;
 import rx.schedulers.Schedulers;
 
 /**
@@ -47,11 +46,7 @@ public class JokeInterImpl implements JokeInter {
                 .baseUrl(baseUrl)
                 .build();
     }
-    private static class SingletonHolder{
-        private static final JokeInterImpl INSTANCE=new JokeInterImpl(BASE_URL);
-        private static final JokeInterImpl GIFINSTANCE=new JokeInterImpl(GIF_BASE_URL);
-        private static final JokeInterImpl RANDOMINSTANCE=new JokeInterImpl(Random_BASE_URL);
-    }
+
     public static JokeInterImpl getIntance(){
         return SingletonHolder.INSTANCE;
     }
@@ -59,6 +54,7 @@ public class JokeInterImpl implements JokeInter {
     public static JokeInterImpl getGifIntance(){
         return SingletonHolder.GIFINSTANCE;
     }
+
     public static JokeInterImpl getRandomIntance(){
         return SingletonHolder.RANDOMINSTANCE;
     }
@@ -102,5 +98,11 @@ public class JokeInterImpl implements JokeInter {
                 .unsubscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(subscriber);
+    }
+
+    private static class SingletonHolder {
+        private static final JokeInterImpl INSTANCE = new JokeInterImpl(BASE_URL);
+        private static final JokeInterImpl GIFINSTANCE = new JokeInterImpl(GIF_BASE_URL);
+        private static final JokeInterImpl RANDOMINSTANCE = new JokeInterImpl(Random_BASE_URL);
     }
 }
